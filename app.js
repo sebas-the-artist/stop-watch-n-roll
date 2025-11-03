@@ -8,20 +8,25 @@ let savedTime = 0;
 
 function startTimer() {
     startTime = Date.now()
-    console.log(startTime)
+    console.log("start", startTime)
     cancelId = requestAnimationFrame(updateTimer)
 }
 
 function stopTimer() {
     savedTime = savedTime + Date.now() - startTime
-    console.log('stop')
-    console.log(savedTime)
+    console.log("stop", savedTime)
     cancelAnimationFrame(cancelId)
 }
 
 function resetTimer() {
+    timerMilliseconds.innerHTML = '000';
+    timerSeconds.innerHTML = "00";
+    timerMinutes.innerHTML = "00";
+
+    savedTime = 0;
+    startTime = Date.now();
+
     console.log('reset')
-    
 }
 
 function updateTimer() {
